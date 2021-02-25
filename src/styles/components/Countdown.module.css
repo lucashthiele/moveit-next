@@ -58,6 +58,23 @@
     transition: background-color 0.2s;
 }
 
-.startCountButton:hover{
+.startCountButton:not(:disabled):hover{
     background: var(--blue-dark);
 }
+
+.startCountButtonActive{
+    background: var(--white);
+    color: var(--title);
+}
+
+.startCountButtonActive:not(:disabled):hover{
+    background: var(--red);
+    color: var(--white);
+}
+
+.startCountButton:disabled{
+    background: var(--white);
+    color: var(--text);
+    cursor: default;
+}
+
