@@ -27,7 +27,7 @@ export default function Home(props: HomeProps) {
     >
       <div className={ styles.container }>
         <Head>
-          <title>Inicio | get.Moved</title>  
+          <title>Inicio | GetMoved</title>  
         </Head >
         
         <ExperienceBar />
