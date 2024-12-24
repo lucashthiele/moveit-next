@@ -17,6 +17,8 @@ export default async function Home() {
     Number(cookieStore.get("currentExperience")?.value) || 0;
   const challengesCompleted =
     Number(cookieStore.get("challengesCompleted")?.value) || 0;
+  
+  const pomodoroDefaultTime: number = Number(process.env.POMODORO_DEFAULT_TIME);
 
   return (
     <ChallengesProvider
@@ -28,7 +30,7 @@ export default async function Home() {
         <ExperienceBar />
 
         <section>
-          <CountdownProvider>
+          <CountdownProvider pomodoroTime={pomodoroDefaultTime}>
             <div>
               <Profile />
               <CompletedChallenges />

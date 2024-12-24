@@ -18,6 +18,7 @@ interface CountdownContextData {
 }
 
 interface CountdownProviderProps {
+  pomodoroTime: number;
   children: ReactNode;
 }
 
@@ -25,10 +26,10 @@ export const CountdownContext = createContext({} as CountdownContextData);
 
 let countdownTimeout: NodeJS.Timeout;
 
-export function CountdownProvider({ children }: CountdownProviderProps) {
+export function CountdownProvider({ children, pomodoroTime }: CountdownProviderProps) {
   const { starNewChallenge } = useContext(ChallengesContext);
 
-  const [time, setTime] = useState(25 * 60);
+  const [time, setTime] = useState(pomodoroTime);
   const [isActive, setIsActive] = useState(false);
   const [hasFinished, setHasFinished] = useState(false);
 
@@ -42,7 +43,7 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
   function resetCountdown() {
     clearTimeout(countdownTimeout);
     setIsActive(false);
-    setTime(25 * 60);
+    setTime(pomodoroTime);
     setHasFinished(false);
   }
 
