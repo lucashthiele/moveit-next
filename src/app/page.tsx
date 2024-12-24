@@ -12,9 +12,11 @@ import React from "react";
 
 export default async function Home() {
   const cookieStore = await cookies();
-  const level = Number(cookieStore.get("level"));
-  const currentExperience = Number(cookieStore.get("currentExperience"));
-  const challengesCompleted = Number(cookieStore.get("challengesCompleted"));
+  const level = Number(cookieStore.get("level")?.value) || 1;
+  const currentExperience =
+    Number(cookieStore.get("currentExperience")?.value) || 0;
+  const challengesCompleted =
+    Number(cookieStore.get("challengesCompleted")?.value) || 0;
 
   return (
     <ChallengesProvider
